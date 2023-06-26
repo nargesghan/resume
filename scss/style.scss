@@ -1,0 +1,29 @@
+$first-color:rgb(72, 128, 128);
+body{
+    background-color:$first-color;
+}
+.page{
+    display: grid;
+    grid-template-areas:"intro information"". information"". information""links infromation";
+    
+    
+}
+.intro{
+    display: grid;
+    grid-template-rows:1fr 1fr 1fr;
+    grid-area: intro;
+    height: 40%;
+    background-color: blue;
+    overflow: hidden;
+}
+.links{
+    grid-area: links;
+    background-color:darkorange;
+}
+
+.information{
+    grid-area: information;
+    overflow-x: hidden;
+     overflow-y: auto;
+    background-color: deeppink;
+}
