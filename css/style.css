@@ -4,20 +4,40 @@ body {
 
 .page {
   display: grid;
-  grid-template-areas: "intro information" ". information" ". information" "links infromation";
+  grid-template-areas: "intro information";
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.name {
+  margin: 0px;
+  background-color: red;
+}
+
+.role {
+  background-color: yellow;
+  margin: 0px;
+}
+
+.about-me {
+  margin: 0px;
+  background-color: greenyellow;
 }
 
 .intro {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-area: intro;
-  height: 40%;
   background-color: blue;
   overflow: hidden;
 }
 
 .links {
-  grid-area: links;
   background-color: darkorange;
 }
 
