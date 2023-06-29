@@ -1,49 +1,163 @@
 $first-color:rgb(72, 128, 128);
+$first-font: 'Rajdhani', sans-serif;
+@function set-color($color) {
+    @if (lightness($color) > 40) {
+      @return #000;
+    }
+    @else {
+      @return #b9c0d4;
+    }
+}
+
+
+
 body{
     background-color:$first-color;
-}
-.page{
-    display: grid;
-    grid-template-areas:"intro information";
-    height: 100%;
-   width: 100%;
-   position: fixed;
-  top: 0;
-  left: 0;
-  bottom:0;
-  right:0;
+    color: set-color($first-color);
+    cursor: url('../img/custom-cursor.png'), auto;
+    font-family: sans-serif;
+    // display: grid;
+    // grid-template-areas: "header main";
     
 }
-.name{
-    margin: 0px;
-    background-color: red;
-}
-.role{
- background-color: yellow;
- 
- margin: 0px;
-}
-.about-me{
-margin: 0px;
+header{
+   position: fixed;
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 40%;
+    height: 500px;
+    padding-left: 70px;
+    padding-top: 50px;
 
-    background-color: greenyellow;
-}
-.intro{
-    display: grid;
-    grid-template-rows:1fr 1fr 1fr;
-    grid-area: intro;
-   
-    background-color: blue;
-    overflow: hidden;
-  
-}
-.links{
-    background-color:darkorange;
+    .name{
+       margin-bottom: 5px;
+        font-family: $first-font;
+        font-size: 50px;
+       color: lighten(set-color($first-color), 85%);
+    }
+    .role{
+        margin: 0;
+        font-family: $first-font;
+        font-size: 20px;
+        color: lighten(set-color($first-color), 85%);
+        
+    }
+    .intro{
+        display: block;
+        width: 250px;
+        margin-top: 30px;
+      }
+      
+    ul{
+        margin: 0;
+        padding: 0;
+        margin-top: 50px;
+        list-style: none;
+        list-style-position: inside;
+        li{
+          margin: 0 0 10px 0;
+        }
+        .link{
+            text-decoration: none;
+            color: set-color($first-color);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+          }
+          .link::after {
+            content: "";
+            width: 0;
+            height: 3px;
+            background:lighten(set-color($first-color), 85%);;
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            transition: all 500ms;
+        }
+          
+          .link:hover::after {
+            width: 100%;
+          }
+         
+          a:hover {
+            color: lighten(set-color($first-color), 85%);
+            font-size: larger;
+            cursor: url('../img/custom-cursor.png'), auto;
+          }
+    }
+
+  .social-media{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+
 }
 
 .information{
-    grid-area: information;
-    overflow-x: hidden;
-     overflow-y: auto;
-    background-color: deeppink;
+  margin-left: 700px;  
+  .project{
+    
+    display: grid;
+    border: 1px solid darken($first-color, 5%);
+    border-radius: 10px;
+    grid-template-areas: "img title title" "img par par" "tech tech tech";
+    .project-image{
+      grid-area: img;
+      background-color: antiquewhite;
+      align-self: center;
+    }
+    .name-of-project{
+      grid-area: title;
+      padding-left: 10px;
+      margin: 0;
+      a{
+        color:lighten(set-color($first-color), 85%);
+        text-decoration: none;
+      }
+      
+    }
+    .about-project{
+      margin: 0;
+      width: auto;
+      padding-left: 10px;
+      grid-area: par;
+    }
+  .technologies{
+    grid-area: tech;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    .tech{
+      border:solid set-color($first-color);
+      color: $first-color;
+      background-color:set-color($first-color) ;
+      border-radius: 25px;
+      width: fit-content;
+      height: auto;
+      margin-right: 5px;
+      text-align: center;
+      padding: 5px;
+    }
+  }
+  
+  }}
+
+
+
+.cursor{
+  position:fixed;
+  width:40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid set-color($first-color);
+  left: 0;
+  transform: translate(-50%,-50%);
 }
+.cursor.large {
+  height: 70px;
+  width: 70px;
+}
+
