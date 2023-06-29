@@ -1,5 +1,6 @@
 $first-color:rgb(72, 128, 128);
 $first-font: 'Rajdhani', sans-serif;
+$second-color:rgb(223, 242, 253);
 @function set-color($color) {
     @if (lightness($color) > 40) {
       @return #000;
@@ -97,17 +98,19 @@ header{
 }
 
 .information{
-  margin-left: 700px;  
+  margin-left: 700px;
   .project{
-    
     display: grid;
+    margin-bottom: 7px;
     border: 1px solid darken($first-color, 5%);
-    border-radius: 10px;
-    grid-template-areas: "img title title" "img par par" "tech tech tech";
+    border-radius: 20px;
+    grid-template-areas: "img title title" "img par par" ". tech tech";
     .project-image{
       grid-area: img;
       background-color: antiquewhite;
       align-self: center;
+      margin-left: 5px;
+      margin-right: 0;
     }
     .name-of-project{
       grid-area: title;
@@ -116,6 +119,8 @@ header{
       a{
         color:lighten(set-color($first-color), 85%);
         text-decoration: none;
+        cursor: url('../img/custom-cursor.png'), auto;
+        
       }
       
     }
@@ -143,9 +148,8 @@ header{
     }
   }
   
-  }}
-
-
+  }
+  }
 
 .cursor{
   position:fixed;

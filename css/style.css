@@ -79,14 +79,17 @@ header .social-media {
 }
 .information .project {
   display: grid;
+  margin-bottom: 7px;
   border: 1px solid #3f7070;
-  border-radius: 10px;
-  grid-template-areas: "img title title" "img par par" "tech tech tech";
+  border-radius: 20px;
+  grid-template-areas: "img title title" "img par par" ". tech tech";
 }
 .information .project .project-image {
   grid-area: img;
   background-color: antiquewhite;
   align-self: center;
+  margin-left: 5px;
+  margin-right: 0;
 }
 .information .project .name-of-project {
   grid-area: title;
@@ -96,6 +99,7 @@ header .social-media {
 .information .project .name-of-project a {
   color: white;
   text-decoration: none;
+  cursor: url("../img/custom-cursor.png"), auto;
 }
 .information .project .about-project {
   margin: 0;
