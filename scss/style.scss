@@ -1,6 +1,7 @@
 $first-color:rgb(72, 128, 128);
 $first-font: 'Rajdhani', sans-serif;
 $second-color:rgb(223, 242, 253);
+$max-width:1000px;
 @function set-color($color) {
     @if (lightness($color) > 40) {
       @return #000;
@@ -9,7 +10,32 @@ $second-color:rgb(223, 242, 253);
       @return #b9c0d4;
     }
 }
-
+@media screen and (max-width: $max-width) {
+  .navbar{
+  visibility: hidden;
+ }
+  header{
+    position: static !important;
+    grid-area: header;
+    width: 100% !important;
+    .intro{
+     width:90% !important;
+    }
+  }
+  .information{
+    grid-area: inf;
+    margin-left: 0px !important;
+    margin-top: 40%;
+    #section1{
+      margin-bottom: 40% !important;
+    }
+  }
+  body{
+    display: grid;
+    grid-template-areas: "header""inf";
+    
+  }
+}
 
 
 body{
@@ -17,6 +43,7 @@ body{
     color: set-color($first-color);
     cursor: url('../img/custom-cursor.png'), auto;
     font-family: sans-serif;
+    padding-top: 50px;
     // display: grid;
     // grid-template-areas: "header main";
     
@@ -30,7 +57,7 @@ header{
     width: 40%;
     height: 500px;
     padding-left: 70px;
-    padding-top: 50px;
+    
 
     .name{
        margin-bottom: 5px;
@@ -99,11 +126,17 @@ header{
 
 .information{
   margin-left: 700px;
+#section1{
+  margin-bottom: 20%;
+}
+  .project:hover{
+    background-color: lighten($first-color,5%);
+    border: 1px solid darken($first-color, 10%);
+    border-radius: 20px;
+  }
   .project{
     display: grid;
     margin-bottom: 7px;
-    border: 1px solid darken($first-color, 5%);
-    border-radius: 20px;
     grid-template-areas: "img title title" "img par par" ". tech tech";
     .project-image{
       grid-area: img;

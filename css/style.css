@@ -1,8 +1,34 @@
+@media screen and (max-width: 1000px) {
+  .navbar {
+    visibility: hidden;
+  }
+  header {
+    position: static !important;
+    grid-area: header;
+    width: 100% !important;
+  }
+  header .intro {
+    width: 90% !important;
+  }
+  .information {
+    grid-area: inf;
+    margin-left: 0px !important;
+    margin-top: 40%;
+  }
+  .information #section1 {
+    margin-bottom: 40% !important;
+  }
+  body {
+    display: grid;
+    grid-template-areas: "header" "inf";
+  }
+}
 body {
   background-color: rgb(72, 128, 128);
   color: #b9c0d4;
   cursor: url("../img/custom-cursor.png"), auto;
   font-family: sans-serif;
+  padding-top: 50px;
 }
 
 header {
@@ -14,7 +40,6 @@ header {
   width: 40%;
   height: 500px;
   padding-left: 70px;
-  padding-top: 50px;
 }
 header .name {
   margin-bottom: 5px;
@@ -77,11 +102,17 @@ header .social-media {
 .information {
   margin-left: 700px;
 }
+.information #section1 {
+  margin-bottom: 20%;
+}
+.information .project:hover {
+  background-color: #519090;
+  border: 1px solid #365f5f;
+  border-radius: 20px;
+}
 .information .project {
   display: grid;
   margin-bottom: 7px;
-  border: 1px solid #3f7070;
-  border-radius: 20px;
   grid-template-areas: "img title title" "img par par" ". tech tech";
 }
 .information .project .project-image {
